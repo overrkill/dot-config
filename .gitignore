@@ -19,4 +19,7 @@ user-dirs.dirs
 xfce4/
 user-dirs.locale
 rofi.backup/
-
+gtk-3.0/
+gtk-4.0/
+gh/
+gnome-control-center/

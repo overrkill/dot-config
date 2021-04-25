@@ -1,3 +1,8 @@
+" File              : init.vim
+" Author            : Abhishek Kale  <https://github.com/overrkill>
+" Date              : 24.04.2021
+" Last Modified Date: 24.04.2021
+" Last Modified By  : Abhishek Kale  <https://github.com/overrkill>
 " nvim  config 
 " - Author -
 "  __                                
@@ -5,6 +10,7 @@
 "|    ||  |_|/ /  | /  | |/) | |/ |/ 
 " \__/  \/  |_/   |/   |/| \/|/|_/|_/
 "github - http://github.com/overrkill
+"
 "
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -22,6 +28,9 @@ Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mhinz/vim-startify'
+Plug 'tomtom/tcomment_vim'
+Plug 'Raimondi/delimitMate'
+Plug 'alpertuna/vim-header'
 call plug#end()
 
 "filetype plugin
@@ -37,12 +46,15 @@ nnoremap <C-H> <C-W><C-H>
 set splitright
 set splitbelow
 
-
+" Add file header
+let g:header_field_author = 'Abhishek Kale '
+let g:header_field_author_email = 'https://github.com/overrkill'
+map <F4> :AddHeader<CR>
 
 
 " custom KEYbinding
 noremap <C-E> :NERDTreeToggle<cr> 
-
+" inoremap ~auth <C-o>:r!echo 'filename : '%<cr> <C-o>:r! cat ~/temps/auth.txt<cr>
 "customization
 set nu rnu
 
@@ -73,5 +85,6 @@ hi! Comment cterm=italic gui=italic
 
 "compile comes first
 autocmd filetype cpp nnoremap <F5> :!g++ %  && ./a.out <CR>
+autocmd filetype cpp nnoremap <F6> :!g++ % <CR>
 "autocmd filetype cpp nnoremap <F5> : ./a.out <CR> !! for some reason this
 "gives nosymbol found

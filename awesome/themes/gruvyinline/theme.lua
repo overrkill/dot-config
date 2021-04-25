@@ -1,3 +1,10 @@
+--[[--
+File              : theme.lua
+Author            : Abhishek Kale  <https://github.com/overrkill>
+Date              : 24.04.2021
+Last Modified Date: 24.04.2021
+Last Modified By  : Abhishek Kale  <https://github.com/overrkill>
+--]]--
 --[[
 
      Author  -  
@@ -22,9 +29,9 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/gruvyline"
-theme.wallpaper                                 = "~/Downloads/gruvspace.jpg"
-theme.font                                      = "Fira Code Regular 10"
-theme.taglist_font                              = "Fira Code Regular 10"
+theme.wallpaper                                 = "~/Downloads/gruvbox_spc_wtr.jpg"
+theme.font                                      = "JetBrains Mono Bold 10"
+theme.taglist_font                              = "JetBrains Mono Bold 10"
 theme.fg_normal                                 = "#ebdbb2"
 theme.fg_focus                                  = "#ebdbb2"
 theme.fg_urgent                                 = "#ebdbb2"
@@ -37,13 +44,13 @@ theme.taglist_bg_occupied                         = theme.bg_normal
 theme.taglist_fg_occupied                         = "#ecb90f"
 theme.taglist_fg_empty                         = "#928374"
 theme.taglist_bg_empty                         = theme.bg_normal
-theme.tasklist_bg_focus                         = "#fabd2d"
-theme.tasklist_fg_focus                         = theme.bg_normal
+theme.tasklist_bg_focus                         = "#3f3f3f"
+theme.tasklist_fg_focus                         = "#ecb90f"
 theme.bg_systray                                = "#3F3F3F"
 theme.fg_systray                                = "#ebdbb2"
 theme.border_width                              = dpi(2)
-theme.border_normal                             = "#928374"
-theme.border_focus                              = "#98971a"
+theme.border_normal                             = "#ebdbb2"
+theme.border_focus                              = "#1dd260"
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -263,9 +270,9 @@ function theme.at_screen_connect(s)
     screen   = s,
     filter   = awful.widget.tasklist.filter.currenttags,
     buttons  = awful.util.tasklist_buttons,
-    style    = {
-        shape  = gears.shape.rounded_bar,
-    },
+  --  style    = {
+  --      shape  = gears.shape.rounded_rect,
+  --  },
     }
     
 
