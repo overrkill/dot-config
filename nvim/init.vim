@@ -1,7 +1,7 @@
 " File              : init.vim
 " Author            : Abhishek Kale  <https://github.com/overrkill>
 " Date              : 24.04.2021
-" Last Modified Date: 24.04.2021
+" Last Modified Date: 25.04.2021
 " Last Modified By  : Abhishek Kale  <https://github.com/overrkill>
 " nvim  config 
 " - Author -
@@ -35,7 +35,7 @@ call plug#end()
 
 "filetype plugin
 filetype plugin on
-
+set omnifunc=syntaxcomplete#Complete
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

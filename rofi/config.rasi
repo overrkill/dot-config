@@ -1,31 +1,44 @@
+/**
+ * File              : config.rasi
+ * Author            : Abhishek Kale  <https://github.com/overrkill>
+ * Date              : 25.04.2021
+ * Last Modified Date: 25.04.2021
+ * Last Modified By  : Abhishek Kale  <https://github.com/overrkill>
+ */
+
 /* vi: set filetype=css:*/
 configuration {
-	font: "Noto Sans 15";
+	font: "JetBrains Mono 13";
 	modi: "drun,run,window";
 	show-icons: true;
 	fullscreen: false;
-	drun-display-format: "{name}";
+	drun-display-format: " {name}";
 }
 
 * {
-	border-radius: 45px;
-	bg: #383C4466;
-	bg-alt: #516177;
-	fg: #ABB2BF;
-	fg-alt: #5D5E72;
-	text-color: #CBD2DF;
-	background-color: @bg;
-	padding: 6;
+	/* bg: #a8998499; */
+	/* bg-alt: #516177; */
+	/* fg: #ABB2BF; */
+	/* fg-alt: #5D5E72; */
+	text-color: #ebdbb2;
+	background-color: #28282899;
+	padding: 2;
 }
 
-element, entry, prompt {
-	padding: 10;
+element, entry {
+	padding: 5;
 	text-color: @text-color;
 }
-
+prompt{
+	padding:2;
+}
+entry {
+	color:#ecb90f;
+}
 element selected {
-	background-color: @bg-alt;
-	text-color: @text-color;
+	border-radius:0;
+	background-color: #928374;
+	text-color: #282828;
 }
 
 inputbar {
@@ -33,7 +46,7 @@ inputbar {
 }
 
 listview {
-	lines: 7;
+	lines: 5;
 	scrollbar: false;
 }
 
@@ -41,10 +54,12 @@ mainbox {
 	children: [inputbar, listview];
 }
 window {
+
+	border-radius: 0px;
 	location: center;
 	anchor: center;
-	height: 70%;
-	width: 50%;
+	height: 50%;
+	width: 30%;
 	orientation: vertical;
 	children: [mainbox];
 	hide-scrollbar: true;
