@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+	<title>Firefox - Overrkill</title>
+
+		<style>
+	*{
+		margin : 0;
+		box-sizing:border-box;
+}
+			body {
+				background:#282828;	
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				flex-direction:column;
+				min-height:99vh;
+			}
+			.clock{
+				font-size:5rem;
+				font-weight:800;
+				color:#ebdbb2;
+				text-align:center	
+			}
+			.links{
+				display:flex;
+				align-items:center;
+				justify-content:space-evenly;
+				flex-direction:column;
+				width: 20em;
+				border-radius:1em;
+				min-height: 17em;
+				background:rgba(235, 219, 178, 0.1);
+				
+			}
+			a{
+				font-size:1.1em;
+				color:#ebdbb2;
+				text-decoration:none;
+				font-weight:800;
+			}
+			a:before{
+				content:" [";
+			}
+			a:after{content:"] "}
+
+			/* .up:hover a:after{content:">>"} do it later*/
+			.up{ color:#de342e; }
+			.hr,#hour{ color:#1dd260; }
+			.cf{ color:#4e59b7; }
+			.cc,#min{ color:#fabd2d; }
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			HEllo World <span id="hour">(o</span>:<span id="min">o)</span>
+		</div>
+		<div class="links">
+		<a href="https://reddit.com/r/unixporn" class="up">Unix</a> 
+
+		<a href="https://codeforces.com" class="cf">Codeforces</a> 
+
+		<a href="https://codechef.com" class="cc">Codechef</a> 
+
+		<a href="https://hackerrank.com" class="hr">hackerrank</a> 
+
+		<a href="#" class="no" >?</a> 
+
+		</div>
+		<script>
+		let hr  = document.getElementById("hour");
+		let mn = document.getElementById("min");
+		
+		function setDate(){	
+		
+		console.log("logging time");	
+		let d = new Date();
+		d.getHours()<9?hr.innerHTML = "0"+d.getHours():hr.innerHTML=d.getHours();
+		d.getMinutes()>9?mn.innerHTML = d.getMinutes():mn.innerHTML = "0"+d.getMinutes();}
+		
+		setDate();
+		setInterval(()=>setDate(),40000);
+		</script>
+	</body>
+</html>
