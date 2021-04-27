@@ -97,10 +97,11 @@ awful.spawn.with_shell(
 local themes = {
     "gruvyline",		-- 1
     "gruvyinline",		-- 2
+    "onemoredark",              -- 3  
 }
 
 -- choose your theme here
-local chosen_theme = themes[2]
+local chosen_theme = themes[3]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -129,7 +130,7 @@ local virtualmachine    = "virtualbox"
 
 -- awesome variables
 awful.util.terminal = terminal
-awful.util.tagnames = {"web", "term", "code", "nix"  }
+awful.util.tagnames = {"web", "term", "code", "files" , "yt"  }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,

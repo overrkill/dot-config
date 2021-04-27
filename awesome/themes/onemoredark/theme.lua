@@ -29,28 +29,28 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/gruvyline"
-theme.wallpaper                                 = "~/Downloads/pexels-eugene-dorosh-739407.jpg"
+theme.wallpaper                                 = "~/Downloads/pexels-rostislav-uzunov-5011647.jpg"
 theme.font                                      = "JetBrains Mono Bold 10"
 theme.taglist_font                              = "JetBrains Mono Bold 10"
-theme.fg_normal                                 = "#ebdbb2"
-theme.fg_focus                                  = "#ebdbb2"
-theme.fg_urgent                                 = "#ebdbb2"
-theme.bg_normal                                 = "#282828"
-theme.bg_focus                                  = "#282828"
-theme.bg_urgent                                 = "#282828"
-theme.taglist_fg_focus                          = "#1dd260"
-theme.taglist_bg_focus                         = "#3F3F3F"
+theme.fg_normal                                 = "#abb2bf"
+theme.fg_focus                                  = "#abb2bf"
+theme.fg_urgent                                 = "#abb2bf"
+theme.bg_normal                                 = "#282c34"
+theme.bg_focus                                  = "#282c34"
+theme.bg_urgent                                 = "#282c34"
+theme.taglist_fg_focus                          = "#98c379"
+theme.taglist_bg_focus                         = "#302e36"
 theme.taglist_bg_occupied                         = theme.bg_normal
-theme.taglist_fg_occupied                         = "#ecb90f"
-theme.taglist_fg_empty                         = "#928374"
+theme.taglist_fg_occupied                         = "#c678dd"
+theme.taglist_fg_empty                         = "#abb2bf" --"#61afef"
 theme.taglist_bg_empty                         = theme.bg_normal
-theme.tasklist_bg_focus                         = "#3f3f3f"
-theme.tasklist_fg_focus                         = "#ecb90f"
-theme.bg_systray                                = "#3F3F3F"
-theme.fg_systray                                = "#ebdbb2"
-theme.border_width                              = dpi(2)
-theme.border_normal                             = "#ebdbb2"
-theme.border_focus                              = "#88d260"
+theme.tasklist_bg_focus                         = "#302e36"
+theme.tasklist_fg_focus                         = "#c678dd"
+theme.bg_systray                                = "#302e36"
+theme.fg_systray                                = "#abb2bf"
+theme.border_width                              = dpi(3)
+theme.border_normal                             = "#abb2bf"
+theme.border_focus                              = "#c678dd"
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -93,7 +93,7 @@ theme.widget_vol_no                             = theme.dir .. "/icons/vol_no.pn
 theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 3
+theme.useless_gap                               = 2
 --mstab config
 -- mstab
 theme.mstab_bar_ontop = false               -- whether you want to allow the bar to be ontop of clients
@@ -118,7 +118,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%T'", 1,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.fontcolor(theme.font,"#ebdbb2","#3F3F3F",stdout))
+        widget:set_markup(" " .. markup.fontcolor(theme.font,"#302e36","#e5c07b",stdout))
     end
 )
 
@@ -148,7 +148,7 @@ theme.volume = lain.widget.alsabar({
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.fontcolor(theme.font,"#8ec07c","#282828", " MEM " .. mem_now.used .. "MB "))
+        widget:set_markup(markup.fontcolor(theme.font,"#98c379","#282c34", " MEM " .. mem_now.used .. "MB "))
     end
 })
 
@@ -181,9 +181,9 @@ local baticon = wibox.widget.imagebox(theme.widget_battery)
 local bat = lain.widget.bat({
     settings = function()
         if bat_now.status and bat_now.status ~= "N/A" then
-            widget:set_markup(markup.fontcolor(theme.font, "#fabd2d", "#282828", " BAT " .. bat_now.perc.." "))
+            widget:set_markup(markup.fontcolor(theme.font, "#e5c07b", "#282c34", " BAT " .. bat_now.perc.." "))
         else
-            widget:set_markup(markup.fontcolor(theme.font, "#fabd2d", "#282828" , " BAT ? "))
+            widget:set_markup(markup.fontcolor(theme.font, "#e5c07b", "#282c34" , " BAT ? "))
             baticon:set_image(theme.widget_ac)
         end
     end
@@ -193,7 +193,7 @@ local bat = lain.widget.bat({
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({
     settings = function()
-        widget:set_markup(markup.fontcolor(theme.font, "#f41", "#282828", " VOL ".. volume_now.level))
+        widget:set_markup(markup.fontcolor(theme.font, "#e06c75", "#282c34", " VOL ".. volume_now.level))
     end
 })
 
@@ -281,29 +281,30 @@ function theme.at_screen_connect(s)
 
     -- Add widgets to the wibox
     s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-	spacing = 170,
+        layout = wibox.layout.flex.horizontal,
+	spacing = 100,
         { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
+            layout = wibox.layout.flex.horizontal,
             --spr,
             s.mytaglist,
-            s.mypromptbox,
-            spr,
+            --s.mypromptbox,
+          
         },
 	{
 	    
-            wibox.container.margin(wibox.widget { theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)),
 		s.mytasklist,
-        wibox.container.margin(wibox.widget { empt.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)),
-		layout = wibox.layout.flex.horizontal,
+       -- wibox.container.margin(wibox.widget { empt.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)),
+		layout = wibox.layout.align.horizontal,
 		spacing=0,
 
 	}, -- Middle widget
         { -- Right widgets
-            layout = wibox.layout.align.horizontal,
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 0,
+            wibox.container.margin(wibox.widget { theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)),
             wibox.container.margin(wibox.widget { mem.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)),
 	    wibox.container.margin(wibox.widget { bat.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)),
-            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(4)),"#3F3F3F",gears.shape.rounded_rect),
+            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(4)),"#e5c07b",gears.shape.rounded_rect),
             wibox.widget.systray(),
             --]]
             
