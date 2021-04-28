@@ -11,7 +11,6 @@ chosen=$(echo -e $opts | rofi -dmenu -theme /home/abhi/.config/rofi/powermenu.ra
 
 case $chosen in
   "${ols[0]}")
-    systemctl poweroff
     yn=$(echo -e "yes\nNo" | rofi -dmenu -theme /home/abhi/.config/rofi/powermenu.rasi )
     if [ $yn == "yes" ]
     then
