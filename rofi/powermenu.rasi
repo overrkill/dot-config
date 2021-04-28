@@ -1,0 +1,68 @@
+/**
+ * File              : config.rasi
+ * Author            : Abhishek Kale  <https://github.com/overrkill>
+ * Date              : 25.04.2021
+ * Last Modified Date: 25.04.2021
+ * Last Modified By  : Abhishek Kale  <https://github.com/overrkill>
+ */
+
+/* vi: set filetype=css:*/
+configuration {
+	font: "Hack Nerd Font Regular 13";
+	modi: "drun,run,window";
+	show-icons: false;
+	fullscreen: false;
+	drun-display-format: "{name}";
+}
+
+* {
+	/* bg: #a8998499; */
+	/* bg-alt: #516177; */
+	/* fg: #ABB2BF; */
+	/* fg-alt: #5D5E72; */
+	text-color: #abb2b2;
+	background-color:#282c34;
+	padding: 2;
+}
+
+element, entry {
+	padding: 5;
+	text-color: @text-color;
+}
+prompt{
+	padding:2;
+}
+entry {
+	color:#be5046;
+}
+element selected {
+	border-radius:4;
+	background-color: #393e48;
+	text-color: #979eab;
+}
+
+inputbar {
+	children: [];
+}
+
+listview {
+	lines: 3;
+	scrollbar: false;
+}
+
+mainbox {
+	children: [inputbar, listview];
+}
+window {
+        
+	border-radius: 10px;
+        border-color:#3c3f44;
+        border:2px solid;
+	location: center;
+	anchor: center;
+	height: 20%;
+	width: 20%;
+	orientation: horizontal;
+	children: [mainbox];
+	hide-scrollbar: true;
+}
