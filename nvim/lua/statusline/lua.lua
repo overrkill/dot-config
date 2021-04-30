@@ -64,7 +64,7 @@ gls.left[5] = {
             return ""
         end,
         separator = " ",
-        highlight = {colors.lightbg, colors.bg}
+        highlight = {colors.nord, colors.bg}
     }
 }
 

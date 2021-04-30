@@ -29,7 +29,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/gruvyline"
-theme.wallpaper                                 = "~/Downloads/pexels-rostislav-uzunov-5011647.jpg"
+theme.wallpaper                                 = "~/Downloads/nord_solar_map.jpg"
 theme.font                                      = "JetBrains Mono Regular 10"--"Hack Nerd Font Regular 10"
 theme.taglist_font                              = "JetBrains Mono Regular 10"
 theme.fg_normal                                 = "#abb2bf"
@@ -38,7 +38,7 @@ theme.fg_urgent                                 = "#abb2bf"
 theme.bg_normal                                 = "#282c34"
 theme.bg_focus                                  = "#282c34"
 theme.bg_urgent                                 = "#282c34"
-theme.taglist_fg_focus                          = "#98c379"
+theme.taglist_fg_focus                          = "#61afef"
 theme.taglist_bg_focus                         = "#302e36"
 theme.taglist_bg_occupied                         = theme.bg_normal
 theme.taglist_fg_occupied                         = "#c678dd"
@@ -94,6 +94,17 @@ theme.widget_vol_mute                           = theme.dir .. "/icons/vol_mute.
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = 2
+
+-- Naughty config
+theme.notification_font = "JetBrains Mono Regular 11"
+theme.notification_bg = "#222"
+theme.notification_fg = "#c678dd"
+theme.notification_opacity = 0.9
+theme.notification_shape = gears.shape.rounded_rect
+theme.notification_margin = dpi(10)
+theme.notification_icon_size = dpi(10)
+theme.notification_max_height = dpi(100)
+theme.notification_max_width = dpi(280)
 --mstab config
 -- mstab
 theme.mstab_bar_ontop = false               -- whether you want to allow the bar to be ontop of clients
@@ -118,7 +129,7 @@ local clockicon = wibox.widget.imagebox(theme.widget_clock)
 local clock = awful.widget.watch(
     "date +'%T'", 1,
     function(widget, stdout)
-        widget:set_markup(" " .. markup.fontcolor(theme.font,"#302e36","#e5c07b",stdout))
+        widget:set_markup(" " .. markup.fontcolor(theme.font,"#302e36","#61afef",stdout))
     end
 )
 
@@ -126,9 +137,9 @@ local clock = awful.widget.watch(
 theme.cal = lain.widget.cal({
     attach_to = { clock },
     notification_preset = {
-        font = "Noto Sans Mono Medium 10",
+        font = "JetBrains Mono Medium 10",
         fg   = theme.fg_normal,
-        bg   = theme.bg_normal
+        bg   = theme.bg_normal,
     }
 })
 
@@ -304,7 +315,7 @@ function theme.at_screen_connect(s)
             wibox.container.margin(wibox.widget { theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)),
             wibox.container.margin(wibox.widget { mem.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)),
 	    wibox.container.margin(wibox.widget { bat.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(3)),
-            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(4)),"#e5c07b",gears.shape.rounded_rect),
+            wibox.container.background(wibox.container.margin(clock, dpi(4), dpi(4)),"#61afef",gears.shape.rounded_rect),
             wibox.widget.systray(),
             --]]
             

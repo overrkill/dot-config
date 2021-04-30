@@ -21,8 +21,8 @@ map("v", "x", [=[ "_x ]=], opt)
 map("", "<leader>c", '"+y')
 
 -- OPEN TERMINALS --
-map("n", "<C-l>", [[<Cmd>vnew term://zsh <CR>]], opt) -- open term over right
-map("n", "<C-x>", [[<Cmd> split term://zsh | resize 10 <CR>]], opt) -- open term bottom
+map("n", "<leader>tv", [[<Cmd>vnew term://zsh <CR>]], opt) -- open term over right
+map("n", "<leader>th", [[<Cmd> split term://zsh | resize 10 <CR>]], opt) -- open term bottom
 
 -- COPY EVERYTHING --
 map("n", "<C-a>", [[ <Cmd> %y+<CR>]], opt)
